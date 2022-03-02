@@ -19,20 +19,32 @@ html_doc.search('.event').each do |element|
   url_events << element.attribute("href").value
 end
 
-url_events.each do |event|
+events = url_events.uniq
 
-  p event
+puts "Creating..."
+events.each do |event|
   event_file = URI.open(event).read
   event_doc = Nokogiri::HTML(event_file)
+  concert_title = event_doc.css('.event-title').text
+  concert_date = event_doc.css('.date').children[0].text
+  regex = event_doc.css('.event-title').text[/(\d+)\/(\d+)/]
+  artist_name =  regex == nil ?  concert_title.strip : concert_title.tr(regex, '').strip
+  venue_name = event_doc.css('.place a').attribute('title').value
+  address = event_doc.css('.tribe-street-address').text
+  city = event_doc.css('.tribe-locality').text
+  country = event_doc.css('.tribe-country-name').text
+  venue_address = "#{address}, #{city}, #{country}"
+  url_artist_photo = event_doc.css('.swiper-wrapper')[0].children[-2].attribute("style").value[/\(.*?\)/].tr('(','').tr(')','')
+  artist_photo = URI.open(url_artist_photo)
+  url_concert_photo = event_doc.css('.hero').attribute('style').value[/\(.*?\)/].tr('(','').tr(')','')
+  concert_photo = URI.open(url_concert_photo)
+  artist = Artist.new(name: artist_name)
+  #artist.photo.attach(io: artist_photo, filename: "artist_photo.jpeg", content_type: "image/jpeg")
+  artist.save
+  venue = Venue.new(name: venue_name, address: venue_address)
+  venue.save
 
-  p event_doc.search('.event-title').text
-  p event_doc.search('.place a').attribute("title").value
-  p event_doc.search('.tribe-street-address').text
-  p event_doc.search('.tribe-locality').text
-  p event_doc.search('.tribe-country-name').text
-  p event_doc.css('.hero').attribute('style').value[/\(.*?\)/].tr('(','').tr(')','')
-
-
-  p event_doc.css('.swiper-wrapper')[0].children[-2].attribute("style").value[/\(.*?\)/].tr('(','').tr(')','')
-
+  concert = Concert.new(title: concert_title, content: "#{venue_name}, #{venue_address}", date: concert_date, artist_id: artist.id, venue_id: venue.id)
+  concert.save
 end
+puts "Finished!"
