@@ -42,6 +42,8 @@ events.each do |event|
   #artist.photo.attach(io: artist_photo, filename: "artist_photo.jpeg", content_type: "image/jpeg")
   artist.save
   venue = Venue.new(name: venue_name, address: venue_address)
+  venue_photo.photo.attach(io: concert_photo, filename: "concert_photo.jpeg", content_type: "image/jpeg")
+
   venue.save
 
   concert = Concert.new(title: concert_title, content: "#{venue_name}, #{venue_address}", date: concert_date, artist_id: artist.id, venue_id: venue.id)
