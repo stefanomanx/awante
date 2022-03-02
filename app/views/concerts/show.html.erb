@@ -2,14 +2,15 @@
   <div class="container-row" style="background-color:#ddd">
       <div class="text-center">
         <h1>
-          <%= @artist.name %>
+          <%= @concert.title %>
         </h1>
       </div>
       <div style="background-color:#ddd">
-        <h4><%= @artist.details %></h4>
+        <h4><%= @concert.content %></h4>
+        <h4><%= @concert.date %></h4>
       </div>
       <div>
-        <%= cl_image_tag @artist.photo.key %>
+        <%= cl_image_tag @concert.photo.key %>
       </div>
     </div>
 </div>
