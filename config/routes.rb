@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  resources :artists, only: [ :show ] #CRUD?
+  resources :artists, only: [ :index, :show ] #CRUD?
 
-  resources :venues, only: [ :show, ] #CRUD?
+  resources :venues, only: [ :index, :show ] #CRUD?
 
-  resources :concerts, only: [:index, :show, ] #CRUD?
+  resources :concerts, only: [:index, :show ] #CRUD?
 end

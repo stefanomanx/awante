@@ -34,7 +34,9 @@ gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
 group :development, :test do  gem 'pry-byebug'
+
   gem 'pry-rails'
+
   gem 'dotenv-rails'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -71,3 +73,4 @@ gem 'omniauth-spotify'
 
 # Added OmniAuth Rails CSRF Protection
 gem 'omniauth-rails_csrf_protection'
+
