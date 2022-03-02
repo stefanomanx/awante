@@ -7,5 +7,5 @@ Rails.application.routes.draw do
 
   resources :venues, only: [ :show, ] #CRUD?
 
-  resources :concerts, only: [:index, :show, ] #CRUD?
+  resources :concerts, only: [:index, :show ] #CRUD?
 end
