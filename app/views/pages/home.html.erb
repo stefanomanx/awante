@@ -1,4 +1,20 @@
-<h1>awante</h1>
-<p>Search</p>
-<p>Spotify</p>
-<p>Go to concerts</p>
+<br>
+<div class="container text-center p-3">
+  <h1>awante</h1>
+  <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+    <div class="search-form-control form-group">
+      <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+      <div>
+        <button name="button" type="submit" class="btn btn-flat">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+    </div>
+  <% end %>
+
+  <%= button_to "#", class: "btn btn-success" do %>
+    <i class="fab fa-spotify"></i><%= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path, method: :post %>
+  <% end %>
+  <br>
+  <%= link_to "Go to concerts", "#", class: "btn btn-success m-2" %>
+</div>

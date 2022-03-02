@@ -65,3 +65,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Added Cloudiary for storing images
 gem 'cloudinary'
+
+# Added omniauth
+gem 'omniauth-spotify'
+
+# Added OmniAuth Rails CSRF Protection
+gem 'omniauth-rails_csrf_protection'
