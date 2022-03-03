@@ -2,7 +2,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # skip_before_action :verify_authenticity_token, only: :spotify
 
   def spotify
-    # request.env['rack.session'][:ommiauth_spotify_force_approval?] = true
+    # request.env['rack.session'][:ommiauth_spotify_force_approval?]
     user = User.from_omniauth(request.env['omniauth.auth'])
 
     if user.persisted?

@@ -21,7 +21,7 @@ end
 
 events = url_events.uniq
 
-puts "Creating artists..."
+puts "Creating db..."
 events.each do |event|
   event_file = URI.open(event).read
   event_doc = Nokogiri::HTML(event_file)
@@ -33,15 +33,6 @@ events.each do |event|
   artist = Artist.new(name: artist_name)
   artist.photo.attach(io: artist_photo, filename: "artist_photo.jpeg", content_type: "image/jpeg")
   artist.save
-end
-puts "Finished!"
-
-
-puts "Creating venues..."
-
-events.each do |event|
-  event_file = URI.open(event).read
-  event_doc = Nokogiri::HTML(event_file)
   venue_name = event_doc.css('.place a').attribute('title').value
   address = event_doc.css('.tribe-street-address').text
   city = event_doc.css('.tribe-locality').text
@@ -49,13 +40,6 @@ events.each do |event|
   venue_address = "#{address}, #{city}, #{country}"
   venue = Venue.new(name: venue_name, address: venue_address)
   venue.save
-end
-puts "Finished!"
-
-puts "Creating concerts..."
-events.each do |event|
-  event_file = URI.open(event).read
-  event_doc = Nokogiri::HTML(event_file)
   concert_title = event_doc.css('.event-title').text
   concert_date = event_doc.css('.date').children[0].text
   regex = event_doc.css('.event-title').text[/(\d+)\/(\d+)/]
