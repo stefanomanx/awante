@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   #has_one :favourite, dependent: :destroy
   has_one_attached :photo
+  has_many :favorites
+  has_many :artists, through: :favorites
 
   def self.from_omniauth(auth)
     user = where(uid: auth.uid).first_or_create do |user|
