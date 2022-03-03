@@ -74,4 +74,8 @@ gem 'omniauth-spotify'
 # Added OmniAuth Rails CSRF Protection
 gem 'omniauth-rails_csrf_protection'
 
+# Added Geocoder
 gem "geocoder"
+
+# Added PG Search
+gem 'pg_search', '~> 2.3.0'
