@@ -21,7 +21,7 @@
       <i class="fab fa-spotify"></i><%= link_to ' Sign in with Spotify', user_spotify_omniauth_authorize_path, method: :post, class: "text-decoration-none link-dark m-1" %>
     <% end %>
     <br>
-    <%= link_to "Go to concerts", "#", class: "btn btn-success m-2" %>
+    <%= link_to "Go to concerts", concerts_path(@concerts), class: "btn btn-success m-2" %>
   </div>
 </div>
 
@@ -43,4 +43,3 @@
     zoom: 0.65
   })
 </script>
-
