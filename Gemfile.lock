@@ -294,7 +294,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
-  cloudinary (~> 1.16.0)
+  cloudinary
   devise
   dotenv-rails
   font-awesome-sass
@@ -323,4 +323,4 @@ RUBY VERSION
    ruby 3.0.3p157
 
 BUNDLED WITH
-   2.3.7
+   2.3.8
