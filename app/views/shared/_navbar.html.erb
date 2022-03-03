@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
     <% end %>
 
@@ -12,10 +12,10 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Concerts", "#", class: "nav-link" %>
+            <%= link_to "Concerts", concerts_path(@concert), class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Favourites", "#", class: "nav-link" %>
+            <%= link_to "Favourites", user_path(current_user), class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <% if current_user.spotify_photo? %>
@@ -26,7 +26,7 @@
               <%= image_tag "https://res.cloudinary.com/diarvpaib/image/upload/v1614805568/backpack_round_black_anmpmn.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Profile", "#", class: "dropdown-item" %>
+            <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
