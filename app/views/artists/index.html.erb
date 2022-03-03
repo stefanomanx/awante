@@ -7,6 +7,10 @@
         <div class="card"  style="">
           <ul class="text-center p-1">
             <li class="list-unstyled"><%= link_to (cl_image_tag artist.photo.key, height: 100, width: 100, crop: :scale), artist_path(artist)  %> </li>
+            <%= simple_form_for [ artist, @favorite ] do |f| %>
+              <%= f.hidden_field :artist_id, :value => artist.id %>
+              <%= f.submit "Mark as favorite" %>
+            <% end %>
             <li class="list-unstyled"><%= link_to artist.name, artist_path(artist) %> </li>
           </ul>
         </div>

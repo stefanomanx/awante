@@ -2,6 +2,7 @@ class ArtistsController < ApplicationController
 
   def index
     @artists = Artist.all
+    @favorite = Favorite.new
   end
 
   def show
