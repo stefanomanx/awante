@@ -74,3 +74,4 @@ gem 'omniauth-spotify'
 # Added OmniAuth Rails CSRF Protection
 gem 'omniauth-rails_csrf_protection'
 
+gem "geocoder"
