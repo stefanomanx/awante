@@ -1,0 +1,16 @@
+<br>
+<div class="container">
+  <p><%#= cl_image_tag @user.avatar.key, height: 200, width: 200, crop: :scale, :border => { :width => 4, :color => 'black' } %></p>
+  <h2><%#= @user.name %></h2>
+  <p>Email: <%#= @user.email %></p>
+  <br>
+    <div class="notification-actions">
+      <%= link_to 'Edit', edit_user_registration_path(current_user), class:"btn btn-primary" %>
+      <%= link_to "Delete #{@user.name}",
+            user_path(@user),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+    </div>
+  <br>
+<%= link_to 'Home', '/', class:"btn btn-primary" %>
+</div>
