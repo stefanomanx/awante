@@ -6,4 +6,11 @@ class Artist < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   # validates :details, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :search_by_artist,
+    against: [ :name ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
