@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   #has_one :favourite, dependent: :destroy
   has_one_attached :photo
+  has_many :favorites
+  has_many :artists, through: :favorites
 
   def self.from_omniauth(auth)
     user = where(uid: auth.uid).first_or_create do |user|
@@ -13,6 +15,7 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       user.spotify_photo = auth.info.image
+      user.name = auth.info.display_name
     end
     user.spotify_token = auth.credentials.refresh_token
     user

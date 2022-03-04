@@ -8,12 +8,22 @@
     <h1 class="font-weight-bold text-light">awante</h1>
     <%= simple_form_for :search, url: root_path, method: :get do |f| %>
       <div class="search-form-control form-group">
-        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+        <%= form_tag root_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+              class: "form-control",
+              placeholder: "Find where your favourite artist will play"
+          %>
+          <button name="button" type="submit" class="btn btn-flat">
+            <i class="fas fa-search"></i> Search
+          </button>
+        <% end %>
+        <%# <input class="form-control string required" type="text" name="search[query]" id="search_query" />
         <div>
           <button name="button" type="submit" class="btn btn-flat">
             <i class="fas fa-search"></i> Search
           </button>
-        </div>
+        </div> %>
       </div>
     <% end %>
     <br>
@@ -21,7 +31,7 @@
       <i class="fab fa-spotify"></i><%= link_to ' Sign in with Spotify', user_spotify_omniauth_authorize_path, method: :post, class: "text-decoration-none link-dark m-1" %>
     <% end %>
     <br>
-    <%= link_to "Go to concerts", "#", class: "btn btn-success m-2" %>
+    <%= link_to "Go to concerts", concerts_path(@concerts), class: "btn btn-success m-2" %>
   </div>
 </div>
 
@@ -43,4 +53,3 @@
     zoom: 0.65
   })
 </script>
-
