@@ -6,7 +6,10 @@
         <div class="card"  style="">
           <ul class="text-center p-1">
             <li class="list-unstyled"><%= link_to concert.title, concert_path(concert) %> </li>
-            <li class="list-unstyled"><%= link_to (cl_image_tag concert.photo.key, height: 100, width: 100, crop: :scale), concert_path(concert)  %> </li>
+            <li class="list-unstyled"><%= link_to concert_path(concert) do %>
+              <%= cl_image_tag concert.photo&.key, height: 100, width: 100, crop: :scale %>
+            <% end %>
+            </li>
             <li class="list-unstyled"><%= concert.date %> </li>
           </ul>
         </div>
