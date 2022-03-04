@@ -12,4 +12,9 @@
 @import "components/index";
 @import "pages/index";
 
+// Mapbox CSS
 @import "mapbox-gl/dist/mapbox-gl";
+
+body {
+  background-color: #0C3459;
+}
