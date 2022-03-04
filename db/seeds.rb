@@ -23,7 +23,8 @@ end
 events = url_events.uniq
 
 puts "Creating db..."
-events.each do |event|
+events.each_with_index do |event, index|
+  puts "Creating event #{index}"
   event_file = URI.open(event).read
   event_doc = Nokogiri::HTML(event_file)
   concert_title = event_doc.css('.event-title').text
