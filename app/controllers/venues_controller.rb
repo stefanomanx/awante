@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
 
   def index
-    @venues = Venue.all
+    @venues = Venue.all.order(name: :asc)
     @markers = @venues.geocoded.map do |venue|
       {
         lat: venue.latitude,
@@ -12,8 +12,7 @@ class VenuesController < ApplicationController
   end
   def show
     @venue = Venue.find(params[:id])
-    @artists = Artist.all
-    @concerts = Concert.all
+    @concerts = Concert.all.order(date: :asc)
 
     @events = []
     @concerts.each do |concert|
