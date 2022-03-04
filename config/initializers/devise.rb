@@ -277,8 +277,8 @@ Devise.setup do |config|
     playlist-read-private
     user-read-private
     user-read-email
-    user-read-display_name
     ).join(' ')
+    #user-read-display_name
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
