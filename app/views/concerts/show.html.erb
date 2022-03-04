@@ -11,7 +11,7 @@
         </h1>
       </div>
       <div style="background-color:#ddd">
-        <h4><%= @concert.content %></h4>
+        <h4><%= link_to @concert.content, venues_path %></h4>
         <h4><%= @concert.date %></h4>
       </div>
       <div>
