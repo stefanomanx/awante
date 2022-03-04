@@ -8,9 +8,6 @@
             <li class="list-unstyled"><%= link_to concert.title, concert_path(concert) %> </li>
             <li class="list-unstyled"><%= link_to (cl_image_tag concert.photo.key, height: 100, width: 100, crop: :scale), concert_path(concert)  %> </li>
             <li class="list-unstyled"><%= concert.date %> </li>
-            <%#li class="list-unstyled">Model: <%= bike.model %> </li>
-            <%#li class="list-unstyled">- $<%= bike.price %> </li>
-            <%#li class="list-unstyled"><%= link_to "More", bike_path(bike), class: "btn btn-danger"%> </li>
           </ul>
         </div>
       </div>
