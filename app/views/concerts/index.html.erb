@@ -8,14 +8,15 @@
   <div class="concerts-container" >
       <div class= "m-2">
       <% @concerts.each do |concert| %>
-        <div class="card mb-2" style="max-width: 600px;">
-          <div class="row g-0 m-1">
-            <div class="col-md-6 p-3">
-              <%= link_to concert_path(concert) do %>
-                <%= cl_image_tag concert.photo&.key, height: 150, width: 200, crop: :scale %>
-              <% end %>
+
+        <div class="card mb-2 rounded" style="max-width: 600px;">
+          <div class="row g-0 mx-6 px-6" >
+            <div class="card col-6 mx-6 px-6" style="background-image: url(<%= concert.photo_url %>)">
+              <%#= link_to concert_path(concert) do %>
+                <%#= cl_image_tag concert.photo&.key, height: 150, width: 200, crop: :scale %>
+              <%# end %>
             </div>
-            <div class="col-md-6">
+            <div class="col-6 mx-6 px-6" >
               <div class="card-body text-end">
                 <h5 class="card-title"><%= link_to concert.title, concert_path(concert) %></h5>
                 <p class="card-text"><%= concert.content.split(',')[0] %></p>
