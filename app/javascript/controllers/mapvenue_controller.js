@@ -8,28 +8,25 @@ export default class extends Controller {
   }
 
   connect() {
-
-    console.log(this.markerValue[0])
-
     mapboxgl.accessToken = this.apiKeyValue
-
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10"
     })
-
-    new mapboxgl.Marker()
-    .setLngLat([markerValue[0], markerValue[1]])
-    .addTo(this.map);
+    this.#addMarkerToMap()
     this.#fitMapToMarker()
-
   }
 
-
+  #addMarkerToMap() {
+    new mapboxgl.Marker()
+    .setLngLat([this.markerValue[1], this.markerValue[0]])
+    .addTo(this.map);
+  }
 
   #fitMapToMarker() {
     const bounds = new mapboxgl.LngLatBounds()
-    this.markerValue(bounds.extend([ marker[0], marker[1] ]))
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+    bounds.extend([ this.markerValue[1], this.markerValue[0] ])
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 17, duration: 0 })
   }
+
 }

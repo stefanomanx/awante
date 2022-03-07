@@ -8,6 +8,11 @@
   top: 0;
 }
 
+.card {
+  background-size: cover;
+  background-position: center;
+}
+
 .cards {
   flex-direction: column;
   flex-grow: 1;
