@@ -7,29 +7,31 @@
 <div class="container">
   <h1 class="text-center">Concerts</h1>
   <div class="concerts-container" >
-    <div class="cards">
+      <div class= "m-2">
       <% @concerts.each do |concert| %>
         <div class="card mb-2" style="max-width: 600px;">
-          <div class="row g-0">
-            <div class="col-md-6">
+          <div class="row g-0 m-1">
+            <div class="col-md-6 p-3">
               <%= link_to concert_path(concert) do %>
                 <%= cl_image_tag concert.photo&.key, height: 150, width: 200, crop: :scale %>
               <% end %>
             </div>
-        <div class="col-md-6">
-          <div class="card-body">
-            <h5 class="card-title text-end"><%= link_to concert.title, concert_path(concert) %></h5>
-            <p class="card-text text-end"><%= concert.content.split(',')[0].strip %></p>
-            <p class="card-text text-end"><small class="text-muted"><%= concert.date %></small></p>
-            <a href="<%= concert.url %>"class="btn btn-primary" target="_blank"> Buy tickets </a>
+            <div class="col-md-6">
+              <div class="card-body text-end">
+                <h5 class="card-title"><%= link_to concert.title, concert_path(concert) %></h5>
+                <p class="card-text"><%= concert.content.split(',')[0] %></p>
+                <p class="card-text"><small class="text-muted"><%= concert.date %></small></p>
+                <a href="<%= concert.url %>" class="btn btn-primary" target="_blank"> Buy </a>
+              </div>
+            </div>
           </div>
         </div>
       <% end %>
-    </div>
-    <div id="map" style="width: 75%; height: 100vh;"
-      data-controller="mapbox"
-      data-mapbox-markers-value="<%= @markers.to_json %>"
-      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
+  </div>
+  <div class="mt-2" id="map" style="width: 75%; height: 100vh;"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
   </div>
 </div>
