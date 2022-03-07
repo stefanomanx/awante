@@ -25,6 +25,7 @@ events = url_events.uniq
 puts "Creating db..."
 events.each_with_index do |event, index|
   puts "Creating event #{index}"
+  puts event
   event_file = URI.open(event).read
   event_doc = Nokogiri::HTML(event_file)
   concert_title = event_doc.css('.event-title').text
@@ -42,38 +43,16 @@ events.each_with_index do |event, index|
   venue_address = "#{address}, #{city}, #{country}"
   venue = Venue.new(name: venue_name, address: venue_address)
   venue.save
-  concert_title = event_doc.css('.event-title').text
-  concert_date = event_doc.css('.date').children[0].text
+  concert_date = event_doc.css('.date').children[0].text.downcase
 
-  if concert_date.include?("enero")
-    traduction = concert_date.gsub("enero", "january")
-  elsif concert_date.include?("febrero")
-    traduction = concert_date.gsub("febrero", "february")
-  elsif concert_date.include?("marzo")
-    traduction = concert_date.gsub("marzo", "march")
-  elsif concert_date.include?("abril")
-    traduction = concert_date.gsub("abril", "april")
-  elsif concert_date.include?("mayo")
-    traduction = concert_date.gsub("mayo", "may")
-  elsif concert_date.include?("junio")
-    traduction = concert_date.gsub("junio", "june")
-  elsif concert_date.include?("julio")
-    traduction = concert_date.gsub("julio", "july")
-  elsif concert_date.include?('agosto')
-    traduction = concert_date.gsub('agosto', 'august')
-  elsif concert_date.include?("septiembre")
-    traduction = concert_date.gsub("septiembre", "september")
-  elsif concert_date.include?("octubre")
-    traduction = concert_date.gsub("octubre", "october")
-  elsif concert_date.include?("noviembre")
-    traduction = concert_date.gsub("noviembre", "november")
-  elsif concert_date.include?("diciembre")
-    traduction = concert_date.gsub("diciembre", "december")
-  end
-
-  date = DateTime.parse(traduction)
+  months_es_array = %w[enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre]
+  months_en_array = %w[january february march april may june july august september october november december]
+  month_en_index = months_es_array.find_index(concert_date.split(' ')[0])
+  date_en = concert_date.gsub(concert_date.split(' ')[0], months_en_array[month_en_index])
+  date = DateTime.parse(date_en)
   formatted_date = date.strftime('%Y/%m/%d %H:%M')
 
+  concert_title = event_doc.css('.event-title').text
   regex = event_doc.css('.event-title').text[/(\d+)\/(\d+)/]
   artist_name =  regex == nil ?  concert_title.strip : concert_title.tr(regex, '').strip
   venue_name = event_doc.css('.place a').attribute('title').value

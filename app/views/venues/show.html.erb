@@ -4,8 +4,8 @@
   <p class = "text-center"><%= @venue.address %></p>
   <h2 class = "text-center"> Proximos eventos aquí</h2>
   <div class="row multi-columns-row">
-    <% @concerts.each do |concert| %>
-      <div class="col-sm-6 col-md-3 col-lg-3">
+    <div class="col-sm-6 col-md-3 col-lg-3">
+      <% @concerts.each do |concert| %>
         <% if concert.venue_id == @venue.id %>
           <div class="card"  style="">
             <ul class="text-center p-1">
@@ -15,7 +15,12 @@
             </ul>
           </div>
         <% end %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
+          <div style="width: 100%; height: 600px;"
+            data-controller="mapvenue"
+            data-mapvenue-marker-value="<%= @marker.to_json %>"
+            data-mapvenue-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  `       </div>
 </div>
