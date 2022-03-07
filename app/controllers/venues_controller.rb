@@ -10,15 +10,10 @@ class VenuesController < ApplicationController
       }
     end
   end
+
   def show
     @venue = Venue.find(params[:id])
     @concerts = Concert.all.order(date: :asc)
-
-    @events = []
-    @concerts.each do |concert|
-      if concert.venue_id == @venue.id
-        @events << concert
-      end
-    end
+    @marker = @venue.geocode
   end
 end

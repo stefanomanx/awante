@@ -1,25 +1,35 @@
+<<<<<<< HEAD
 <br>
 <br>
 <br>
 <br>
 <br>
-<div class="container" >
-  <h1>Concerts</h1>
-  <div class="row multi-columns-row">
-    <% @concerts.each do |concert| %>
-      <div class="col-sm-6 col-md-3 col-lg-3">
-        <div class="card"  style="">
-          <ul class="text-center p-1">
-            <li class="list-unstyled"><%= link_to concert.title, concert_path(concert) %> </li>
-            <li class="list-unstyled"><%= link_to concert_path(concert) do %>
-              <%= cl_image_tag concert.photo&.key, height: 100, width: 100, crop: :scale %>
-            <% end %>
-            </li>
-            <li class="list-unstyled"><%= concert.date %> </li>
+<div class="container">
+  <h1 class="text-center">Concerts</h1>
+  <div class="concerts-container" >
+    <div class="cards">
+      <% @concerts.each do |concert| %>
+        <div class="card mb-2" style="max-width: 600px;">
+          <div class="row g-0">
+            <div class="col-md-6">
+              <%= link_to concert_path(concert) do %>
+                <%= cl_image_tag concert.photo&.key, height: 150, width: 200, crop: :scale %>
+              <% end %>
+            </div>
+        <div class="col-md-6">
+          <div class="card-body">
+            <h5 class="card-title text-end"><%= link_to concert.title, concert_path(concert) %></h5>
+            <p class="card-text text-end"><%= concert.content.split(',')[0].strip %></p>
+            <p class="card-text text-end"><small class="text-muted"><%= concert.date %></small></p>
             <a href="<%= concert.url %>"class="btn btn-primary" target="_blank"> Buy tickets </a>
-          </ul>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+    <div id="map" style="width: 75%; height: 100vh;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 </div>
