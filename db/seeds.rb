@@ -63,7 +63,7 @@ events.each_with_index do |event, index|
   concert_photo = URI.open(url_concert_photo)
   artist = Artist.find_by_name(artist_name)
   venue = Venue.find_by_name(venue_name)
-  concert = Concert.new(title: concert_title, content: "#{venue_name}, #{venue_address}", date: formatted_date, artist_id: artist.id, venue_id: venue.id, url: event)
+  concert = Concert.new(title: concert_title, content: "#{venue_name}, #{venue_address}", photo_url: url_concert_photo, date: formatted_date, artist_id: artist.id, venue_id: venue.id, url: event)
   concert.photo.attach(io: concert_photo, filename: "concert_photo.jpeg", content_type: "image/jpeg")
   concert.save
 end
