@@ -1,8 +1,18 @@
 <br>
+<br>
+<br>
+<br>
+<br>
 <div class="container">
-  <p><%#= cl_image_tag @user.photo.key, height: 200, width: 200, crop: :scale, :border => { :width => 4, :color => 'black' } %></p>
-  <h2>name: <%= @user.name %></h2>
-  <p>email: <%= @user.email %></p>
+  <p><% if current_user.spotify_photo? %>
+              <%= image_tag current_user.spotify_photo, height: 200, width: 200, crop: :scale, :border => { :width => 4, :color => 'black' } %>
+            <% elsif current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, height: 200, width: 200, crop: :scale, :border => { :width => 4, :color => 'black' } %>
+            <% else %>
+              <%= image_tag "https://res.cloudinary.com/diarvpaib/image/upload/v1614805568/backpack_round_black_anmpmn.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %></p>
+  <h2>Username: <%= @user.name %></h2>
+  <p>Email: <%= @user.email %></p>
   <h3>Favorite Artists:
     <ul>
       <% @user.artists.uniq.each do |artist| %>

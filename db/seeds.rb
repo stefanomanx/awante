@@ -24,8 +24,7 @@ events = url_events.uniq
 
 puts "Creating db..."
 events.each_with_index do |event, index|
-  puts "Creating event #{index}"
-  puts event
+  puts "Creating event #{index + 1}"
   event_file = URI.open(event).read
   event_doc = Nokogiri::HTML(event_file)
   concert_title = event_doc.css('.event-title').text
@@ -64,7 +63,7 @@ events.each_with_index do |event, index|
   concert_photo = URI.open(url_concert_photo)
   artist = Artist.find_by_name(artist_name)
   venue = Venue.find_by_name(venue_name)
-  concert = Concert.new(title: concert_title, content: "#{venue_name}, #{venue_address}", date: formatted_date, artist_id: artist.id, venue_id: venue.id)
+  concert = Concert.new(title: concert_title, content: "#{venue_name}, #{venue_address}", date: formatted_date, artist_id: artist.id, venue_id: venue.id, url: event)
   concert.photo.attach(io: concert_photo, filename: "concert_photo.jpeg", content_type: "image/jpeg")
   concert.save
 end

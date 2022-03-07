@@ -1,3 +1,12 @@
+<% content_for :meta_title, "#{@concert.title} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @concert.content %>
+<% content_for :meta_description, @concert.date %>
+<% content_for :meta_image, cl_image_path(@concert.photo.key) %>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="container" >
   <div class="container-row" style="background-color:#ddd">
       <div class="text-center">
@@ -6,11 +15,19 @@
         </h1>
       </div>
       <div style="background-color:#ddd">
-        <h4><%= @concert.content %></h4>
+        <h4><%= link_to @concert.content, venues_path %></h4>
         <h4><%= @concert.date %></h4>
       </div>
       <div>
         <%= cl_image_tag @concert.photo.key %>
+        <a href="<%= @concert.url %>" class="btn btn-primary" target="_blank" > Buy tickets </a>
+        <p>COMPARTIR</p>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=awante.live/concerts/<%= @concert.id %>" class="sharer button" target="_blank">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="http://twitter.com/share?text=awante.live/concerts/<%= @concert.id %>" class="sharer button" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
       </div>
     </div>
 </div>
