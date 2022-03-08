@@ -14,12 +14,17 @@
           <h4><%= @artist.details %></h4>
             <% @concerts.each do |concert| %>
               <% if concert.artist_id == @artist.id %>
-                  <h4><%= link_to concert.title, concert_path(concert), height: 150, width: 200 %></h4>
+                  <h4><%= link_to concert.title, concert_path(concert) %></h4>
                   <p> <%= concert.date %></p>
               <% end %>
             <% end %>
         </div>
-        <%= cl_image_tag @artist.photo.key %>
+        <%= cl_image_tag @artist.photo.key, height: 800, width: 1000%>
     </div>
   </div>
+  <div class="footer">
+      <div class="footer-links">
+        <a href="https://www.instagram.com/awante.ok/?hl=es-la"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
 </div>

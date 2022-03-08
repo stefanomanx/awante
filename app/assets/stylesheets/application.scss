@@ -28,6 +28,9 @@ h1, h2, h3, h4, p {
   color: beige;
 }
 
+.nav-item {
+  backdrop-filter: blur(4px);
+}
 h2 {
   color: beige;
 }
@@ -39,4 +42,3 @@ h3 {
 h4 {
   color: beige;
 }
-

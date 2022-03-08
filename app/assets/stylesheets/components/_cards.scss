@@ -85,5 +85,26 @@
 .flex-container {
   display: flex;
   flex-direction: column;
+  align-items: top;
+}
+
+.card-user {
+  display: flex;
+  position: relative;
   align-items: center;
+  border: 10px;
+}
+
+.card-user-info {
+  padding-left: 5%;
+}
+
+.card-info {
+  flex-direction: row;
+  padding-top: 5%;
+}
+
+.avatar-photo {
+  border: 3px solid #555;
+  border-radius: 50%;
 }
