@@ -4,7 +4,7 @@
 <br>
 <br>
 <div class="container">
-  <h1 class="text-center">Concerts</h1>
+  <h1 class="text-center">Conciertos</h1>
   <div class="concerts-container" >
     <div class= "m-2">
     <% @concerts.each do |concert| %>
@@ -20,7 +20,7 @@
               <h5 class="card-title"><%= link_to concert.title, concert_path(concert) %></h5>
               <p class="card-text"><%= concert.content.split(',')[0] %></p>
               <p class="card-text"><small class="text-muted"><%= concert.date %></small></p>
-              <a href="<%= concert.url %>" class="btn btn-primary" target="_blank"> Buy </a>
+              <a href="<%= concert.url %>" class="btn btn-primary" target="_blank"> Tickets </a>
             </div>
           </div>
         </div>
