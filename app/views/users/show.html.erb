@@ -4,23 +4,25 @@
 <br>
 <br>
 <div class="container">
-  <p><% if current_user.spotify_photo? %>
-          <%= image_tag current_user.spotify_photo, height: 200, width: 200, crop: :scale, :border => { :width => 4, :color => 'black' } %>
-        <% elsif current_user.photo.attached? %>
-          <%= cl_image_tag current_user.photo.key, height: 200, width: 200, crop: :scale, :border => { :width => 4, :color => 'black' } %>
-        <% else %>
-          <%= image_tag "https://res.cloudinary.com/diarvpaib/image/upload/v1614805568/backpack_round_black_anmpmn.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <% end %>
-  </p>
-  <h2>Username: <%= @user.name %></h2>
-  <p>Email: <%= @user.email %></p>
-  <h3>Favorite Artists:
-    <ul>
-      <% @user.artists.uniq.each do |artist| %>
-        <li class="list-unstyled"> <%= link_to artist.name, artist_path(artist) %> </li>
+  <div class="card-user">
+    <div class="rounded-circle">
+      <% if current_user.spotify_photo? %>
+        <%= image_tag current_user.spotify_photo, class: "avatar-photo", height: 200, width: 200, crop: :scale, :border => { :width => 4, :color => 'black' } %>
+      <% elsif current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, class: "avatar-photo",  height: 200, width: 200, crop: :scale, :border => { :width => 4, :color => 'black' } %>
+      <% else %>
+        <%= image_tag "https://res.cloudinary.com/diarvpaib/image/upload/v1614805568/backpack_round_black_anmpmn.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
       <% end %>
-    </ul>
-  </h3>
+    </div>
+    <div class="card-user-info">
+      <div class="card-info">
+      <h2>Username: <%= @user.name %></h2>
+        </div>
+      <div class="card-info">
+        <p>Email: <%= @user.email %></p>
+      </div>
+    </div>
+  </div>
   <br>
     <div class="notification-actions">
       <%= link_to 'Edit', edit_user_registration_path(current_user), class:"btn btn-primary" %>
@@ -30,4 +32,18 @@
             data: { confirm: "Are you sure?" }, class:"btn btn-primary" %>
     </div>
   <br>
+  <br>
+  <h3>Favorite Artists:
+    <ul>
+      <% @user.artists.uniq.each do |artist| %>
+        <li> <%= link_to artist.name, artist_path(artist) %> </li>
+      <% end %>
+    </ul>
+  </h3>
+  <br>
+  <div class="footer">
+      <div class="footer-links">
+        <a href="https://www.instagram.com/awante.ok/?hl=es-la"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
 </div>
