@@ -16,7 +16,7 @@
     </div>
     <div class="card-user-info">
       <div class="card-info">
-      <h2>Username: <%= @user.name %></h2>
+      <h2>Nombre de usuario: <%= @user.name %></h2>
         </div>
       <div class="card-info">
         <p>Email: <%= @user.email %></p>
@@ -25,15 +25,15 @@
   </div>
   <br>
     <div class="notification-actions">
-      <%= link_to 'Edit', edit_user_registration_path(current_user), class:"btn btn-primary" %>
-      <%= link_to "Delete account",
+      <%= link_to 'Editar', edit_user_registration_path(current_user), class:"btn btn-primary" %>
+      <%= link_to "Eliminar cuenta",
             user_path(@user),
             method: :delete,
-            data: { confirm: "Are you sure?" }, class:"btn btn-primary" %>
+            data: { confirm: "¿Está seguro?" }, class:"btn btn-primary" %>
     </div>
   <br>
   <br>
-  <h3>Favorite Artists:
+  <h3>Artistas favoritos:
     <ul>
       <% @user.artists.uniq.each do |artist| %>
         <li> <%= link_to artist.name, artist_path(artist) %> </li>

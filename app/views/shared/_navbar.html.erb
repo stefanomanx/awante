@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-dark navbar-lewagon">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag asset_path('logo.jpg') %>
+      <%= image_tag asset_path('favicon3.png') %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,6 +12,9 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
+            <%= link_to "Favoritos", user_path(current_user), class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
             <%= link_to "Favoritos", user_path(current_user), class: "nav-link" %>
           </li>
           <li class="nav-item active">
@@ -29,13 +32,13 @@
               <%= image_tag "https://res.cloudinary.com/diarvpaib/image/upload/v1614805568/backpack_round_black_anmpmn.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to "Perfil", user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Iniciar sesión", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>

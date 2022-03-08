@@ -1,9 +1,8 @@
 
-.concerts-container {
+.container-concerts {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 2px;
-
+  grid-gap: 4px;
 }
 
 #map {
@@ -15,21 +14,43 @@
 
 .card {
   border-radius: 10px;
-  background-size: cover;
-  background-position: center;
-  grid-template-columns: 1fr 1fr;
+}
+.card-concerts {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 190px;
+  background-color: white;
+  border-radius: 10px;
 }
 
+.card-body.text-end {
+  border-radius: 10px;
+  align-items: center;
+  align-content: center;
+}
 
-.card-venue {
+.map-venue {
   border-radius: 10px;
 }
 
 .card-venue-concerts {
-  display: flex;
-  flex-direction: row;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: 280px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.card-concerts {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.link-card-concerts {
+  position: absolute;
+  bottom: 2px;
+  left: 25%;
 }
 
 @media (min-width: 100px) and (max-width: 575px) {
