@@ -4,6 +4,7 @@
 <br>
 <br>
 <div class="container">
+  <%= link_to "Vuelve a conciertos", concerts_path(@concerts), class:"btn btn-primary" %>
   <h1 class = "text-center"> <%= @venue.name %></h1>
   <p class = "text-center"><%= @venue.address %></p>
   <h2 class = "text-center"> Proximos eventos aquí</h2>

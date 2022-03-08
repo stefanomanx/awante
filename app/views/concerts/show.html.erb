@@ -8,6 +8,7 @@
 <br>
 <br>
 <div class="container" >
+  <%= link_to "Vuelve a conciertos", concerts_path(@concerts), class:"btn btn-primary" %>
   <div class="container-row" style="background-color:#ddd">
       <div class="text-center">
         <h1>
@@ -20,14 +21,15 @@
       </div>
       <div>
         <%= cl_image_tag @concert.photo.key %>
-        <a href="<%= @concert.url %>" class="btn btn-primary" target="_blank" > Buy tickets </a>
-        <p>COMPARTIR</p>
+        <a href="<%= @concert.url %>" class="btn btn-primary" target="_blank" > Tickets </a>
+        <br>
+        <p>Compartir</p>
           <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.awante.live/concerts/<%= @concert.id %>" style="text-decoration: none"
- class="" onclick="window.open(this.href,'newwindow','width=600,height=400'); return false;">
+            class="" onclick="window.open(this.href,'newwindow','width=600,height=400'); return false;">
             <i class="fab fa-facebook"></i>
           </a>
           <a href="http://twitter.com/share?text=https://www.awante.live/concerts/<%= @concert.id %>" style="text-decoration: none"
- class="" onclick="window.open(this.href,'newwindow','width=600,height=400'); return false;">
+            class="" onclick="window.open(this.href,'newwindow','width=600,height=400'); return false;">
             <i class="fab fa-twitter"></i>
         </a>
       </div>
