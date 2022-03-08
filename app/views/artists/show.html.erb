@@ -4,30 +4,22 @@
 <br>
 <br>
 <div class="container" >
-  <div class="container-row" style="background-color:#">
-      <div class="text-center">
-        <h1>
+  <%= link_to "Vuelve a artistas", artists_path(@artists), class:"btn btn-primary" %>
+  <div class="card-artist">
+    <div class="flex-container text-center">
+        <h1 class="text-center">
           <%= @artist.name %>
         </h1>
-      </div>
-      <div style="background-color:#ddd">
-        <h4><%= @artist.details %></h4>
-          <% @concerts.each do |concert| %>
-            <div class="col-sm-6 col-md-3 col-lg-3">
+        <div>
+          <h4><%= @artist.details %></h4>
+            <% @concerts.each do |concert| %>
               <% if concert.artist_id == @artist.id %>
-
-                  <ul class="text-center p-1">
-                    <li class="list-unstyled"><%= link_to concert.title, concert_path(concert) %> </li>
-                    <li class="list-unstyled"><%#= link_to (cl_image_tag concert.photo.key, height: 100, width: 100, crop: :scale), concert_path(concert)  %> </li>
-                    <li class="list-unstyled"><%= concert.date %> </li>
-                  </ul>
-
+                  <h4><%= link_to concert.title, concert_path(concert), height: 150, width: 200 %></h4>
+                  <p> <%= concert.date %></p>
               <% end %>
-            </div>
-          <% end %>
-      </div>
-      <div>
+            <% end %>
+        </div>
         <%= cl_image_tag @artist.photo.key %>
-      </div>
     </div>
+  </div>
 </div>
