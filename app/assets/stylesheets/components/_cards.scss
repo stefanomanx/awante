@@ -1,34 +1,39 @@
+
 .concerts-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2px;
+
 }
 
 #map {
+  border-radius: 10px;
   height: 100vh;
   position: sticky;
   top: 0;
 }
 
 .card {
+  border-radius: 10px;
   background-size: cover;
   background-position: center;
-}
-
-.cards {
-  flex-direction: column;
-  flex-grow: 1;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
-  padding: 16px;
 }
 
-.concert-card {
+
+.card-venue {
+  border-radius: 10px;
+}
+
+.card-venue-concerts {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 @media (min-width: 100px) and (max-width: 575px) {
-  .cards {
+  .card {
     grid-template-columns: 1fr;
   }
   #map {
@@ -38,7 +43,7 @@
 
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
-  .cards {
+  .card {
     grid-template-columns: 1fr 1fr;
   }
   #map {
@@ -48,7 +53,7 @@
 
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 1200px) {
-  .cards {
+  .card {
     grid-template-columns: 1fr 1fr 1fr;
   }
   #map {
