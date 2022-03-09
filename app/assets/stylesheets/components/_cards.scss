@@ -16,6 +16,10 @@
   border-radius: 10px;
 }
 
+.footer-fix {
+  padding-bottom: 200px;
+}
+
 .card-concerts {
   margin-bottom: 8px;
   display: grid;
@@ -35,7 +39,7 @@
 .break-line {
     display: -webkit-box;
     -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;  
+    -webkit-box-orient: vertical;
 
   grid-template-areas: "card-img card-content";
 }

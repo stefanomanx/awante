@@ -1,9 +1,4 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="container" >
+<div class="container split">
   <%= link_to "Vuelve a artistas", artists_path(@artists), class:"btn btn-primary" %>
   <div class="card-artist">
     <div class="flex-container text-center">
@@ -22,9 +17,4 @@
         <%= cl_image_tag @artist.photo.key, height: 800, width: 1000%>
     </div>
   </div>
-  <div class="footer">
-      <div class="footer-links">
-        <a href="https://www.instagram.com/awante.ok/?hl=es-la"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
 </div>
