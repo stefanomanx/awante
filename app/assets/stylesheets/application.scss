@@ -16,7 +16,6 @@
 @import "mapbox-gl/dist/mapbox-gl";
 
 body {
-  background-image: url("https://images.unsplash.com/photo-1546707012-c46675f12716?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80");
   // background-color: #0C3459;
   background-color: black; /* Used if the image is unavailable */
   background-position: center; /* Center the image */
@@ -31,6 +30,16 @@ h1, h2, h3, h4, p {
 
 .nav-item {
   backdrop-filter: blur(4px);
+}
+
+.remove-delete-btn-style {
+  position: absolute;
+  top: 3px;
+  bottom: auto;
+  left: auto;
+  right: 8px;
+  background: none;
+  border: none;
 }
 
 .remove-submit-btn-style {
@@ -59,3 +68,13 @@ h1, h2, h3, h4, p {
 .split-margin {
   margin-top: 200px;
 }
+
+.btn {
+  border-radius: 25px;
+  background-color: #D5B66E;
+}
+
+.btn:hover {
+  background-color: #BC8D4B;
+}
+

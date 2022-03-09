@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :favorites, only: [ :index, :create ]
   end
 
+  resources :favorites, only: [ :destroy ]
+
   resources :venues, only: [ :index, :show ] #CRUD?
 
   resources :concerts, only: [:index, :show ] #CRUD?

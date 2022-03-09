@@ -21,11 +21,11 @@
     </div>
     <br>
       <div class="notification-actions">
-        <%= link_to 'Editar', edit_user_registration_path(current_user), class:"btn btn-primary" %>
+        <%= link_to 'Editar', edit_user_registration_path(current_user), class:"btn" %>
         <%= link_to "Eliminar cuenta",
               user_path(@user),
               method: :delete,
-              data: { confirm: "¿Está seguro?" }, class:"btn btn-primary" %>
+              data: { confirm: "¿Está seguro?" }, class:"btn" %>
       </div>
     <br>
     <br>
