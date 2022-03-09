@@ -1,0 +1,28 @@
+@media (min-width: 100px) and (max-width: 575px) {
+  .container-concerts {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+  }
+  .card-venue-concerts {
+    margin-top: 8px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    grid-gap: 8px;
+  }
+  .map-venue {
+    height: 300px;
+  }
+  #map {
+    height: 100vh;
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 1200px) {
+
+}
