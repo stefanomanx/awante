@@ -16,11 +16,16 @@
   border-radius: 10px;
 }
 
+.footer-fix {
+  padding-bottom: 200px;
+}
+
 .card-concerts {
   margin-bottom: 8px;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 3fr 2fr;
   grid-template-rows: 190px;
+  grid-template-areas: "card-img card-content";
   background-color: white;
   border-radius: 10px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
@@ -32,84 +37,47 @@
   position: relative;
 }
 
-.break-line {
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;  
-
-  grid-template-areas: "card-img card-content";
-}
-
 .card-img {
+
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
   grid-area: card-img;
 }
 
 .card-content {
-  grid-area: card-content;
-}
-
-.card-body.text-end {
-  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  align-content: center;
+  justify-content: center;
+
 }
 
-.card {
-  border-radius: 10px;
+.break-line {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
-.map-venue {
+.card-venue {
   border-radius: 10px;
+  background-color: white;
 }
 
 .card-venue-concerts {
   border-radius: 10px;
   display: grid;
-  grid-template-columns: 30% 30% 30%;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 280px;
   align-items: center;
   justify-content: space-between;
+  grid-gap: 10px;
 }
 
-.card-concerts {
-  position: relative;
-  text-align: center;
-  color: white;
-}
 .link-card-concerts {
   position: absolute;
   bottom: 2px;
   left: 25%;
-}
-
-@media (min-width: 100px) and (max-width: 575px) {
-  .container-concerts {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr auto;
-  }
-  // #map {
-  //   display: none;
-  // }
-}
-
-/*Small devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) {
-  .card {
-    grid-template-columns: 1fr 1fr;
-  }
-  #map {
-    display: none;
-  }
-}
-
-/*Medium devices (tablets, 768px and up)*/
-@media (min-width: 1200px) {
-  .card {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  #map {
-    display: block;
-  }
 }
 
 .flex-container {
