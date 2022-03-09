@@ -5,6 +5,21 @@
   grid-gap: 10px;
 }
 
+#map {
+  border-radius: 10px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.footer-fix {
+  padding-bottom: 200px;
+}
+
 .card-concerts {
   margin-bottom: 8px;
   display: grid;

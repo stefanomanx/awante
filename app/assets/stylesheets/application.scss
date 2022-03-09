@@ -22,6 +22,7 @@ body {
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
+  position: relative;
 }
 
 h1, h2, h3, h4, p {
@@ -30,4 +31,13 @@ h1, h2, h3, h4, p {
 
 .nav-item {
   backdrop-filter: blur(4px);
+}
+
+.split {
+  padding-top: 100px;
+  min-height: 100vh;
+}
+
+.split-margin {
+  margin-top: 200px;
 }

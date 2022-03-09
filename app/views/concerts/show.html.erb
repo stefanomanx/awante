@@ -2,12 +2,8 @@
 <% content_for :meta_description, @concert.content %>
 <% content_for :meta_description, @concert.date %>
 <% content_for :meta_image, cl_image_path(@concert.photo.key) %>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="container" >
+
+<div class="container split" >
   <%= link_to "Vuelve a conciertos", concerts_path(@concerts), class:"btn btn-primary" %>
   <div class="container-row" style="background-color:#ddd">
       <div class="text-center">
@@ -32,11 +28,6 @@
             class="" onclick="window.open(this.href,'newwindow','width=600,height=400'); return false;">
             <i class="fab fa-twitter"></i>
         </a>
-      </div>
-    </div>
-    <div class="footer">
-      <div class="footer-links">
-        <a href="https://www.instagram.com/awante.ok/?hl=es-la"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
 </div>
