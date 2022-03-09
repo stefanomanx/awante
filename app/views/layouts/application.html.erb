@@ -6,6 +6,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
@@ -27,42 +30,45 @@
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   </head>
+  <% unless params[:controller] == "pages" %>
+    <body style="background-image: url('https://images.unsplash.com/photo-1546707012-c46675f12716?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80');">
+  <% else %>
+    <body>
+  <% end %>
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
 
-  <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+      <%= yield %>
 
-    <%= yield %>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
-    <% unless params[:controller] == "pages" %>
-      <footer class="bg-dark text-center text-white footer-position">
-        <div class="container p-4 pb-0">
-          <section class="mb-4">
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-              ><i class="fab fa-twitter"></i
-            ></a>
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-              ><i class="fab fa-google"></i
-            ></a>
-            <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/awante.ok/" target="_blank" role="button"
-              ><i class="fab fa-instagram"></i
-            ></a>
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-              ><i class="fab fa-linkedin-in"></i
-            ></a>
-  </div>
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-          Hecho con 💗 por:
-          <strong>Stefano, Jorge y Domingo</strong>
-        </div>
-      </footer>
-    <% end %>
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script>
+        AOS.init();
+      </script>
+      <% unless params[:controller] == "pages" %>
+        <footer class="bg-dark text-center text-white footer-position">
+          <div class="container p-4 pb-0">
+            <section class="mb-4">
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-google"></i
+              ></a>
+              <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/awante.ok/" target="_blank" role="button"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+    </div>
+          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            Hecho con 💗 por:
+            <strong>Stefano, Jorge y Domingo</strong>
+          </div>
+        </footer>
+      <% end %>
   </body>
 </html>

@@ -20,16 +20,14 @@
         </div> %>
       </div>
     <br>
-    <%= button_to "#", class: "btn btn-success" do %>
+    <%= button_to "#", class: "btn" do %>
       <i class="fab fa-spotify"></i><%= link_to ' Ingresar con Spotify', user_spotify_omniauth_authorize_path, method: :post, class: "text-decoration-none link-dark m-1" %>
     <% end %>
     <br>
-    <%= link_to "Ir a conciertos!", concerts_path(@concerts), class: "btn btn-success m-2" %>
+    <%= link_to "Ir a conciertos!", concerts_path(@concerts), class: "btn" %>
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
 <script>
   VANTA.WAVES({
     el: "#vanta",
