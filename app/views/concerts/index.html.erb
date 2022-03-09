@@ -1,16 +1,16 @@
 <div class="container footer-fix split">
   <h1 class="text-center">Conciertos</h1>
-  <div class="container-concerts">
+  <div class="text-center container-concerts">
     <div class="grid">
       <% @concerts.each do |concert| %>
-        <div class="card-concerts m-2">
-            <div>
-            <img src="<%= concert.photo_url %>" alt="<%= concert.title %>" style="width: 100%; height: 100%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; object-fit: fit;">
+        <div class="card-concerts">
+            <div class="card-img">
+            <img src="<%= concert.photo_url %>" alt="<%= concert.title %>" style="object-fit: cover; width: 100%; height: 100%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; ">
             </div>
-            <div class="card-body text-end">
-                <h5 class="card-title"><%= concert.title %></h5>
-                <div class="card-text break-line"><%= concert.content.split(',')[0] %></div>
-                <p class="card-text"><small class="text-muted"><%= concert.date %></small></p>
+            <div class="card-content">
+                <h5><%= concert.title %></h5>
+                <p><%= concert.content.split(',')[0] %></p>
+                <p><small class="text-muted"><%= concert.date %></small></p>
                 <a href="<%= concert_path(concert) %>" class="stretched-link"></a>
             </div>
         </div>
