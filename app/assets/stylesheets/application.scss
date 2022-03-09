@@ -33,6 +33,24 @@ h1, h2, h3, h4, p {
   backdrop-filter: blur(4px);
 }
 
+.remove-submit-btn-style {
+  position: absolute;
+  top: 2px;
+  bottom: auto;
+  left: auto;
+  right: 2px;
+  background: none;
+  border: none;
+}
+
+#heart-white {
+  color: grey;
+}
+
+#heart-red {
+  color: red;
+}
+
 .split {
   padding-top: 100px;
   min-height: 100vh;
