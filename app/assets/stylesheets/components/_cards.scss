@@ -12,13 +12,10 @@
   top: 0;
 }
 
-<<<<<<< HEAD
 .card {
   border-radius: 10px;
 }
 
-=======
->>>>>>> master
 .card-concerts {
   margin-bottom: 8px;
   display: grid;
@@ -26,7 +23,6 @@
   grid-template-rows: 190px;
   background-color: white;
   border-radius: 10px;
-<<<<<<< HEAD
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   &:hover{
     transform: scale(1.05);
@@ -40,7 +36,6 @@
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;  
-=======
 
   grid-template-areas: "card-img card-content";
 }
@@ -51,7 +46,6 @@
 
 .card-content {
   grid-area: card-content;
->>>>>>> master
 }
 
 .card-body.text-end {
@@ -89,7 +83,6 @@
 }
 
 @media (min-width: 100px) and (max-width: 575px) {
-<<<<<<< HEAD
   .container-concerts {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto;
@@ -97,12 +90,6 @@
   // #map {
   //   display: none;
   // }
-=======
-  .card-concerts {
-    grid-template-areas:  "card-img card-img"
-                          "card-content card-content";
-  }
->>>>>>> master
 }
 
 /*Small devices (landscape phones, 576px and up)*/
