@@ -3,23 +3,27 @@
 <br>
 <br>
 <br>
-<div class="container">
-  <%= link_to "Vuelve a conciertos", concerts_path(@concerts), class:"btn btn-primary" %>
+<div class="container footer-fix">
+  <%= link_to "Vuelve a conciertos", concerts_path(@concerts), class:"btn" %>
   <h1 class = "text-center"> <%= @venue.name %></h1>
   <p class = "text-center"><%= @venue.address %></p>
-  <h2 class = "text-center"> Proximos eventos aquí</h2>
   <div class = "map-venue m-auto" style="width: 75%; height: 450px;"
     data-controller="mapvenue"
     data-mapvenue-marker-value="<%= @marker.to_json %>"
     data-mapvenue-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+  <br>
+  <div class="m-4">
+    <h2 class="text-center"> Proximos eventos aquí</h2>
+  </div>
+  <br>
   <div class="card-venue-concerts m-auto" style="width: 75%;">
     <% @concerts.each do |concert| %>
       <% if concert.venue_id == @venue.id %>
-        <div class="card-venue" style="height: 250px;">
+        <div class="card-venue m-4" style="height: 325px;">
           <img src="<%= concert.photo_url %>" alt="<%= concert.title %>" style="object-fit: cover; width: 100%; height: 80%; border-top-left-radius: 10px; border-top-right-radius: 10px; ">
           <div class="card-body text-center p-0 m-0" style="height: 20%;">
-            <p class="card-text p-0 m-0"><%= link_to concert.title, concert_path(concert) %></p>
+            <p class="card-text p-0 m-0"><%= link_to concert.title, concert_path(concert), class: "index-link" %></p>
             <p class="card-text p-0 m-0"><%= concert.date %></p>
           </div>
         </div>

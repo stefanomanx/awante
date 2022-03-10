@@ -59,7 +59,12 @@
 
 .card-venue {
   border-radius: 10px;
-  background-color: white;
+  // background-color: white;
+  backdrop-filter: brightness(60%)!important;
+}
+
+.card-body > p {
+  color: beige;
 }
 
 .card-venue-concerts {
@@ -115,7 +120,6 @@
 }
 
 .card-artist {
-
   border: 3px;
   border-radius: 4px;
   box-shadow: 5px 5px 10px black;
