@@ -23,27 +23,29 @@
         <div class="m-2">
           <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.awante.live/concerts/<%= @concert.id %>" style="text-decoration: none"
             class="rrss" onclick="window.open(this.href,'newwindow','width=600,height=400'); return false;">
-            <i class="fab fa-facebook fa-2x"></i>
+            <i class="fab fa-facebook fa-2x fb-color"></i>
           </a>
         </div>
         <div class="m-2">
           <a href="http://twitter.com/share?text=https://www.awante.live/concerts/<%= @concert.id %>" style="text-decoration: none"
             class="rrss" onclick="window.open(this.href,'newwindow','width=600,height=400'); return false;">
-            <i class="fab fa-twitter fa-2x"></i>
+            <i class="fab fa-twitter fa-2x fb-color"></i>
           </a>
         </div>
       </div>
     </div>
   </div>
-  <div class="content m-2">
-    <p class="text-center"><%= link_to @concert.content.split(',')[0], venue_path(@concert.venue_id) %></p>
-    <p class="text-center"><%= @venue.address %></p>
-    <p class="text-center">
-      <i class="fas fa-calendar-alt"></i> <%= @fecha %>
-    </p>
-    <p class="text-center">
-      <i class="fas fa-clock"></i> <%= @hora %>
-    </p>
+  <div class="card-concert-blur">
+    <div class="content m-2">
+      <p class="text-center"><%= link_to @concert.content.split(',')[0], venue_path(@concert.venue_id), class:"index-link" %></p>
+      <p class="text-center"><%= @venue.address %></p>
+      <p class="text-center">
+        <i class="fas fa-calendar-alt"></i> <%= @fecha %>
+      </p>
+      <p class="text-center">
+        <i class="fas fa-clock"></i> <%= @hora %>
+      </p>
+    </div>
   </div>
 </div>
 <%= render 'shared/footer' %>
