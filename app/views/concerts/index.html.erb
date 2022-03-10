@@ -10,8 +10,10 @@
             </div>
             <div class="card-content">
                 <h5><%= concert.title %></h5>
-                <p><%= concert.content.split(',')[0] %></p>
-                <p><small><i class="fas fa-calendar-alt"></i> <%= concert.date.split(' ')[0] %> <i class="fas fa-clock"></i> <%= concert.date.split(' ')[1] %></small></p>
+                <div class='mb-1'><%= concert.content.split(',')[0] %></div>
+                <div class='mb-1'><small><i class="fas fa-calendar-alt"></i> <%= concert.date.split(' ')[0].split('/')[2] %>/<%= concert.date.split(' ')[0].split('/')[1] %>/<%= concert.date.split(' ')[0].split('/')[0] %>
+                  <i class="fas fa-clock"></i> <%= concert.date.split(' ')[1] %></small>
+                </div>
                 <a href="<%= concert_path(concert) %>" class="stretched-link"></a>
             </div>
         </div>
