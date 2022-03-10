@@ -1,0 +1,44 @@
+//view-concerts-show
+.container > h1 {
+  color: white;
+  text-shadow: 2px 2px 8px #FFFFFF;
+}
+.container > p {
+  color: white;
+}
+.concert-img {
+  display: flex;
+  justify-content: center;
+}
+.concert-img > img {
+  width: 100%;
+  object-fit: cover;
+  height: 350px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px black;
+}
+.share-concerts {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.concert-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-around;
+  align-items: center;
+}
+
+.content > p {
+  color: white;
+  font-size: 20px;
+  text-shadow: 2px 2px 8px #000000;
+}
+
+// view-concerts-index
+.card {
+  border-radius: 10px;
+}
