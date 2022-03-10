@@ -47,7 +47,7 @@ h1, h2, h3, h4 {
 }
 
 .split-margin {
-  margin-top: 200px;
+  margin-top: 150px;
 }
 
 .btn {
@@ -63,4 +63,14 @@ h1, h2, h3, h4 {
   justify-content: center;
   height: 300px;
   object-fit: cover;
+}
+
+.color-inputs {
+  color: white;
+}
+
+.avatar-photo-artist {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
 }
