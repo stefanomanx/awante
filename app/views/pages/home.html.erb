@@ -45,7 +45,9 @@
           <div class="carousel-inner">
             <% current_user.favorites.each_with_index do |favorite, index| %>
               <div class="carousel-item <%= "active" if index == 0 %>">
-                <img src="<%= cloudinary_url(favorite.artist.photo.key) %>" class="d-block" style="height: 300px; margin: 0 auto" alt="">
+                <%= link_to artist_path(favorite.artist) do %>
+                  <%= image_tag cloudinary_url(favorite.artist.photo.key), class: "d-block", style: "height: 300px; margin: 0 auto" %>
+                <% end %>
                 <div class="carousel-caption d-none d-md-block">
                   <%= link_to favorite.artist.name, artist_path(favorite.artist), class:"index-link" %>
                 </div>
