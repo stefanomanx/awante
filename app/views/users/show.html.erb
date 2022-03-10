@@ -11,10 +11,10 @@
         <% end %>
       </div>
       <div class="card-user-info">
-        <div class="card-info">
-        <h2>Nombre de usuario: <%= @user.name %></h2>
-          </div>
-        <div class="card-info">
+        <div class="card-info font-user">
+          <h2>Nombre de usuario: <%= @user.name %></h2>
+        </div>
+        <div class="card-info font-user">
           <p>Email: <%= @user.email %></p>
         </div>
       </div>
@@ -29,13 +29,15 @@
       </div>
     <br>
     <br>
-    <h3>Artistas favoritos:
-      <ul>
-        <% @user.artists.uniq.each do |artist| %>
-          <li> <%= link_to artist.name, artist_path(artist) %> </li>
-        <% end %>
-      </ul>
-    </h3>
+    <div class="card-user-favorite font-user">
+      <h3>Artistas favoritos:
+        <ul>
+          <% @user.artists.uniq.each do |artist| %>
+            <li> <%= link_to artist.name, artist_path(artist), class:"index-link"%> </li>
+          <% end %>
+        </ul>
+      </h3>
+    </div>
   </div>
   <br>
 </div>

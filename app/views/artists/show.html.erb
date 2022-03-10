@@ -1,20 +1,26 @@
 <div class="container split">
-  <%= link_to "Vuelve a artistas", artists_path(@artists), class:"btn" %>
-  <div class="card-artist">
-    <div class="flex-container text-center">
-        <h1 class="text-center">
-          <%= @artist.name %>
-        </h1>
-        <div>
-          <h4><%= @artist.details %></h4>
-            <% @concerts.each do |concert| %>
+  <h1 class="text-center"><%= @artist.name %></h1>
+  <div class="card-artist-show row">
+    <div class="artist-img col-12 col-lg-8">
+      <%= cl_image_tag @artist.photo.key %>
+    </div>
+    <div class="concert-links col-12 col-lg-4">
+      <div class="m-3" data-aos="flip-left">
+        <%= link_to "Vuelve a artistas", artists_path(@artists), class:"btn" %>
+      </div>
+      <div class="m-3 concert-color" data-aos="flip-left">
+        <h4 class="text-center">Proximos conciertos</h4>
+      </div>
+      <div class="m-3">
+        <% @concerts.each do |concert| %>
               <% if concert.artist_id == @artist.id %>
-                  <h4><%= link_to concert.title, concert_path(concert) %></h4>
-                  <p> <%= concert.date %></p>
+                <div class="card-artist font-color" data-aos="zoom-in" >
+                  <h4 class="text-center"><strong><%= link_to concert.title, concert_path(concert), class:"index-link stretched-link" %></strong></h4>
+                  <p class="text-center p-0"> <%= concert.date %></p>
+                </div>
               <% end %>
             <% end %>
-        </div>
-        <%= cl_image_tag @artist.photo.key, height: 800, width: 1000%>
+      </div>
     </div>
   </div>
 </div>

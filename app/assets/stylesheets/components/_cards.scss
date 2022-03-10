@@ -90,7 +90,15 @@
 }
 
 .card-user-info {
-  padding-left: 5%;
+  border: 3px;
+  border-radius: 4px;
+  box-shadow: 5px 5px 10px black;
+  padding: 16px;
+  margin-top: 4px;
+  padding-bottom: 0%;
+  backdrop-filter: brightness(60%)!important;
+  background: rgba(3, 3, 3, 0);
+  margin-left: 8%;
 }
 
 .card-info {
@@ -98,7 +106,42 @@
   padding-top: 5%;
 }
 
+
 .avatar-photo {
   border: 3px solid #555;
   border-radius: 50%;
+}
+
+.card-artist {
+
+  border: 3px;
+  border-radius: 4px;
+  box-shadow: 5px 5px 10px black;
+  padding: 6px;
+  margin-top: 4px;
+  padding-bottom: 0%;
+  backdrop-filter: brightness(60%)!important;
+  background: rgba(3, 3, 3, 0);
+}
+
+.card-user-favorite {
+  border: 3px;
+  border-radius: 4px;
+  box-shadow: 5px 5px 10px black;
+  padding: 4px;
+  margin-top: 4px;
+  padding-bottom: 0%;
+  backdrop-filter: brightness(60%)!important;
+  background: rgba(3, 3, 3, 0);
+}
+
+.card-concert-blur {
+  border: 3px;
+  border-radius: 4px;
+  box-shadow: 5px 5px 10px black;
+  padding: 4px;
+  margin-top: 4px;
+  padding-bottom: 0%;
+  backdrop-filter: brightness(60%)!important;
+  background: rgba(3, 3, 3, 0);
 }
