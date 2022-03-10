@@ -1,3 +1,5 @@
+require 'date'
+
 class ConcertsController < ApplicationController
   skip_before_action :authenticate_user!
 
@@ -15,5 +17,10 @@ class ConcertsController < ApplicationController
 
   def show
     @concert = Concert.find(params[:id])
+    @date = DateTime.parse(@concert.date)
+    @fecha = @date.strftime('%d/%m/%Y %H:%M').split(' ')[0]
+    @hora = @date.strftime('%d/%m/%Y %H:%M').split(' ')[1]
+    @venue_id = @concert.venue_id
+    @venue = Venue.find(@venue_id)
   end
 end

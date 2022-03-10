@@ -4,30 +4,46 @@
 <% content_for :meta_image, cl_image_path(@concert.photo.key) %>
 
 <div class="container split" >
-  <%= link_to "Vuelve a conciertos", concerts_path(@concerts), class:"btn btn-primary" %>
-  <div class="container-row" style="background-color:#ddd">
-      <div class="text-center">
-        <h1>
-          <%= @concert.title %>
-        </h1>
+  <h1 class="text-center"><%= @concert.title %></h1>
+  <div class="card-concert-show row">
+    <div class="concert-img col-12 col-lg-8">
+        <img src="<%= @concert.photo_url %>" alt="<%= @concert.title %>" >
+    </div>
+    <div class="concert-links col-12 col-lg-4">
+      <div class="m-3">
+        <%= link_to "Vuelve a conciertos", concerts_path(@concerts), class:"btn" %>
       </div>
-      <div style="background-color:#ddd">
-        <h4><%= link_to @concert.content, venue_path(@concert.venue_id) %></h4>
-        <h4><%= @concert.date %></h4>
+      <div class="m-3">
+        <a href="<%= @concert.url %>" class="btn" target="_blank" > Tickets </a>
       </div>
-      <div>
-        <%= cl_image_tag @concert.photo.key %>
-        <a href="<%= @concert.url %>" class="btn btn-primary" target="_blank" > Tickets </a>
-        <br>
-        <p>Compartir</p>
+      <div class="share-concerts">
+        <div class="m-2">
+          Compartir
+        </div>
+        <div class="m-2">
           <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.awante.live/concerts/<%= @concert.id %>" style="text-decoration: none"
-            class="" onclick="window.open(this.href,'newwindow','width=600,height=400'); return false;">
-            <i class="fab fa-facebook"></i>
+            class="rrss" onclick="window.open(this.href,'newwindow','width=600,height=400'); return false;">
+            <i class="fab fa-facebook fa-2x"></i>
           </a>
+        </div>
+        <div class="m-2">
           <a href="http://twitter.com/share?text=https://www.awante.live/concerts/<%= @concert.id %>" style="text-decoration: none"
-            class="" onclick="window.open(this.href,'newwindow','width=600,height=400'); return false;">
-            <i class="fab fa-twitter"></i>
-        </a>
+            class="rrss" onclick="window.open(this.href,'newwindow','width=600,height=400'); return false;">
+            <i class="fab fa-twitter fa-2x"></i>
+          </a>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="content m-2">
+    <p class="text-center"><%= link_to @concert.content.split(',')[0], venue_path(@concert.venue_id) %></p>
+    <p class="text-center"><%= @venue.address %></p>
+    <p class="text-center">
+      <i class="fas fa-calendar-alt"></i> <%= @fecha %>
+    </p>
+    <p class="text-center">
+      <i class="fas fa-clock"></i> <%= @hora %>
+    </p>
+  </div>
 </div>
+<%= render 'shared/footer' %>
