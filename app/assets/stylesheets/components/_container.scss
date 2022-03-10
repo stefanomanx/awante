@@ -39,8 +39,52 @@
 }
 
 // view-concerts-index
+
 .card {
+  margin: 10px 0px;
+  height: 250px;
   border-radius: 10px;
+}
+
+.card > img {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.text-over-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 32px;
+  text-decoration: none;
+  color: #FFFFFF;
+  text-shadow: 2px 2px 8px #000000;
+}
+.text-over-card:hover {
+  color: rgb(213,182,110);
+}
+.remove-delete-btn-style {
+  position: absolute;
+  top: 3px;
+  bottom: auto;
+  left: auto;
+  right: 8px;
+  background: none;
+  border: none;
+}
+
+.remove-submit-btn-style {
+  position: absolute;
+  top: 2px;
+  bottom: auto;
+  left: auto;
+  right: 2px;
+  background: none;
+  border: none;
 }
 
 .artist-img {
