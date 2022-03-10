@@ -86,3 +86,39 @@
   background: none;
   border: none;
 }
+
+.artist-img {
+  display: flex;
+  justify-content: center;
+}
+.artist-img > img {
+  width: 100%;
+  object-fit: cover;
+  height: 600px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px black;
+}
+
+.font-color > p {
+  color: white;
+  font-size: 20px;
+  text-shadow: 2px 2px 8px #000000;
+}
+
+.font-user > p {
+  color: white;
+  font-size: 20px;
+  text-shadow: 2px 2px 8px #000000;
+}
+
+.font-user > h2 {
+  color: white;
+  font-size: 20px;
+  text-shadow: 2px 2px 8px #000000;
+}
+
+.font-user > h3 {
+  color: white;
+  font-size: 20px;
+  text-shadow: 2px 2px 8px #000000;
+}
