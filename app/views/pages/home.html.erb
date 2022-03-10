@@ -1,5 +1,5 @@
 <div id="vanta" style="height: 100vh;">
-  <div class="container text-center p-3">
+  <div class="container text-center p-1">
     <h1 class="font-weight-bold display-1 split-margin">awante</h1>
       <div class="search-form-control form-group">
         <%= form_tag artists_path, method: :get do %>
@@ -20,11 +20,86 @@
         </div> %>
       </div>
     <br>
-    <%= button_to "#", class: "btn" do %>
-      <i class="fab fa-spotify"></i><%= link_to ' Ingresar con Spotify', user_spotify_omniauth_authorize_path, method: :post, class: "text-decoration-none link-dark m-1" %>
+    <% unless user_signed_in? %>
+      <%= button_to "#", class: "btn" do %>
+        <i class="fab fa-spotify"></i><%= link_to ' Ingresar con Spotify', user_spotify_omniauth_authorize_path, method: :post, class: "text-decoration-none link-dark m-1" %>
+      <% end %>
+      <br>
+      <%= link_to "Ir a conciertos!", concerts_path(@concerts), class: "btn" %>
     <% end %>
-    <br>
-    <%= link_to "Ir a conciertos!", concerts_path(@concerts), class: "btn" %>
+
+    <div class="container mt-4">
+      <% if user_signed_in? %>
+        <h3 class="font-weight-bold">Tus artistas favoritos de Spotify</h3>
+        <div id="carouselExampleCaptions" class="carousel slide slider" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <% current_user.favorites.each_with_index do |favorite, index| %>
+              <% if index == 0 %>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <% else %>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= index %>" aria-label="Slide <%= index + 1 %>"></button>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div class="carousel-inner">
+            <% current_user.favorites.each_with_index do |favorite, index| %>
+              <div class="carousel-item <%= "active" if index == 0 %>">
+                <img src="<%= cloudinary_url(favorite.artist.photo.key) %>" class="d-block" style="height: 300px; margin: 0 auto" alt="">
+                <div class="carousel-caption d-none d-md-block">
+                  <%= link_to favorite.artist.name, artist_path(favorite.artist), class:"index-link" %>
+                </div>
+              </div>
+            <% end %>  
+          </div>
+            
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+      <% else %>
+        <h3>Conciertos destacados</h3>
+        <div id="carouselExampleCaptions" class="carousel slide slider" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <% @concerts.each_with_index do |concert, index| %>
+              <% if index == 0 %>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <% else %>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= index %>" aria-label="Slide <%= index + 1 %>"></button>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div class="carousel-inner">
+            <% @concerts.each_with_index do |concert, index| %>
+              <div class="carousel-item <%= "active" if index == 0 %>">
+                <%= link_to concert_path(concert) do %>
+                  <%= image_tag concert.photo_url, class: "d-block", style: "height: 300px; margin: 0 auto" %>
+                <% end %>
+                <div class="carousel-caption d-none d-md-block">
+                  <%= link_to concert.title, concert_path(concert), class:"index-link" %>
+                </div>
+              </div>
+            <% end %>  
+          </div>
+            
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
