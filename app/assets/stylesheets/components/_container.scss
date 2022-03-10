@@ -43,7 +43,13 @@
 .card {
   margin: 10px 0px;
   height: 250px;
+  border: 0;
   border-radius: 10px;
+  box-shadow: 5px 5px 10px rgb(213,182,110);
+  &:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s;
+  }
 }
 
 .card > img {

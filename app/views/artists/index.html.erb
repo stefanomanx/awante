@@ -7,7 +7,7 @@
             <%= cl_image_tag artist.photo.key %>
             <div class="text-over-card px-2"> <strong><%= link_to artist.name, artist_path(artist), class:"text-over-card" %></strong></div>
 
-          <% if current_user.artists.include? artist %>
+            <% if current_user.artists.include? artist %>
               <%= link_to favorite_path(current_user.favorites.where(artist: artist).first), method: "delete", class: "dislike-button remove-delete-btn-style", id: "dislike-button" do %>
                 <i class="fas fa-heart" id="heart-red"></i>
               <% end %>
@@ -19,7 +19,6 @@
                 <% end %>
               <% end %>
             <% end %>
-
           </div>
         </div>
     <% end %>
