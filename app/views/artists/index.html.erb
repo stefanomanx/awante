@@ -1,15 +1,13 @@
-<div class="container footer-fix split" >
+<div class="container footer-fix split">
   <h1 class="text-center">Artistas</h1>
   <div class="row">
     <% @artists.each do |artist| %>
+        <div class="col-sm-6 col-md-3 col-lg-3">
+          <div class="card">
+            <%= cl_image_tag artist.photo.key %>
+            <div class="text-over-card px-2"> <strong><%= link_to artist.name, artist_path(artist), class:"text-over-card" %></strong></div>
 
-        <div class="card col-sm-6 col-md-3 col-lg-3 m-1">
-
-            <div class=" card-img-top" style="object-fit: cover; width: 100%; height: 100%;"><%= link_to (cl_image_tag artist.photo.key, height: 100, width: 100, crop: :scale), artist_path(artist)  %> </div>
-
-            <div class="list-unstyled "><%= link_to artist.name, artist_path(artist) %> </div>
-
-            <% if current_user.artists.include? artist %>
+          <% if current_user.artists.include? artist %>
               <%= link_to favorite_path(current_user.favorites.where(artist: artist).first), method: "delete", class: "dislike-button remove-delete-btn-style", id: "dislike-button" do %>
                 <i class="fas fa-heart" id="heart-red"></i>
               <% end %>
@@ -17,13 +15,13 @@
               <%= simple_form_for [ artist, @favorite ], remote: true do |f| %>
                 <%= f.hidden_field :artist_id, :value => artist.id %>
                 <%= button_tag type: 'submit', class: "like-button remove-submit-btn-style", id: "like-button" do %>
-                  <div><i class="fas fa-heart" id="heart-white"></i></div>
+                  <i class="fas fa-heart" id="heart-white"></i>
                 <% end %>
               <% end %>
             <% end %>
 
+          </div>
         </div>
-
     <% end %>
   </div>
 </div>
