@@ -33,7 +33,7 @@
       <h3>Artistas favoritos:
         <ul>
           <% @user.artists.uniq.each do |artist| %>
-            <li> <%= link_to artist.name, artist_path(artist) %> </li>
+            <li> <%= link_to artist.name, artist_path(artist), class:"index-link"%> </li>
           <% end %>
         </ul>
       </h3>

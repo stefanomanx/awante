@@ -8,11 +8,14 @@
       <div class="m-3" data-aos="flip-left">
         <%= link_to "Vuelve a artistas", artists_path(@artists), class:"btn" %>
       </div>
+      <div class="m-3 concert-color" data-aos="flip-left">
+        <h4 class="text-center">Proximos conciertos</h4>
+      </div>
       <div class="m-3">
         <% @concerts.each do |concert| %>
               <% if concert.artist_id == @artist.id %>
                 <div class="card-artist font-color" data-aos="zoom-in" >
-                  <h4 class="text-center"><%= link_to concert.title, concert_path(concert) %></h4>
+                  <h4 class="text-center"><strong><%= link_to concert.title, concert_path(concert), class:"index-link stretched-link" %></strong></h4>
                   <p class="text-center p-0"> <%= concert.date %></p>
                 </div>
               <% end %>
