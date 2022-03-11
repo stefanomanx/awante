@@ -67,6 +67,7 @@
   border-radius: 10px;
   // background-color: white;
   backdrop-filter: brightness(60%)!important;
+  box-shadow: 5px 5px 10px rgb(213,182,110);
 }
 
 .card-body > p {
@@ -103,6 +104,7 @@
 }
 
 .card-user-info {
+  margin-right: 30px;
   border: 3px;
   border-radius: 4px;
   box-shadow: 5px 5px 10px black;
@@ -111,7 +113,6 @@
   padding-bottom: 0%;
   backdrop-filter: brightness(60%)!important;
   background: rgba(3, 3, 3, 0);
-  margin-left: 8%;
 }
 
 .card-info {
@@ -137,16 +138,11 @@
 }
 
 .card-user-favorite {
-  border: 3px;
-  border-radius: 4px;
+  border-radius: 10px;
   box-shadow: 5px 5px 10px black;
-  padding: 4px;
-  margin-top: 4px;
   padding-bottom: 0%;
   backdrop-filter: brightness(60%)!important;
   background: rgba(3, 3, 3, 0);
-  display: flex;
-  align-items: center;
 }
 
 .card-concert-blur {
@@ -158,4 +154,25 @@
   padding-bottom: 0%;
   backdrop-filter: brightness(60%)!important;
   background: rgba(3, 3, 3, 0);
+}
+
+.card-text > a {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  text-shadow: 2px 2px black;
+  &:hover{
+    color: rgb(213,182,110);
+  }
+}
+
+.card-user-favorite > img {
+  margin-right: 10px;
+  padding: 0;
+  width: 30%;
+  object-fit: cover;
+  height: 60px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 5px 5px 10px black;
 }
