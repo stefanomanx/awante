@@ -172,3 +172,19 @@
   height: 70px;
   width: 70px;
 }
+.form-check, .password, .email, .optional {
+  color: white;
+}
+
+.index-user {
+  margin: auto;
+  padding: auto;
+  color: white;
+  font-size: 25px;
+  text-decoration: none;
+  text-shadow: 2px 2px black;
+}
+
+.index-user:hover {
+  color: rgb(213,182,110);
+}
