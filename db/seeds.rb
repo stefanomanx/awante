@@ -79,4 +79,4 @@ badbunny = Artist.find_by_name("Bad Bunny")
 badbunny_photo = URI.open("https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/4/b/7/5/4b75389fe14b1823e30b0f3de1d3f6d3.jpg")
 badbunny.photo.attach(io: badbunny_photo, filename: "badbunny_photo.jpeg", content_type: "image/jpeg")
 badbunny.save
-puts "Finished!"
+puts "Done!"

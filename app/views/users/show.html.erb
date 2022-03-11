@@ -1,7 +1,7 @@
 <div class="container footer-fix split">
   <div class="card-complete-user mt-5">
-    <div class="card-user justify-content-start">
-      <div class="card-user-info">
+    <div class="card-user justify-content-start d-flex flex-row">
+      <div class="card-user-info col-12 col-md-6">
         <div class="card-info font-user">
           <h2>Nombre de usuario: <%= @user.name %></h2>
         </div>
@@ -10,13 +10,13 @@
         </div>
       </div>
 
-      <div class="rounded-circle">
+      <div class="rounded-circle col-12 col-md-6">
         <% if current_user.spotify_photo? %>
-          <%= image_tag current_user.spotify_photo, class: "avatar-photo", height: 200, width: 200, crop: :scale, :border => { :width => 4, :color => 'black' } %>
+          <%= image_tag current_user.spotify_photo, class: "avatar-photo d-none d-md-block", height: 200, width: 200, crop: :scale, :border => { :width => 4, :color => 'black' } %>
         <% elsif current_user.photo.attached? %>
-          <%= cl_image_tag current_user.photo.key, class: "avatar-photo",  height: 200, width: 200, crop: :scale, :border => { :width => 4, :color => 'black' } %>
+          <%= cl_image_tag current_user.photo.key, class: "avatar-photo d-none d-md-block",  height: 200, width: 200, crop: :scale, :border => { :width => 4, :color => 'black' } %>
         <% else %>
-          <%= image_tag "https://i.imgur.com/UNn9Huk.jpg", class: "userpic dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "https://i.imgur.com/UNn9Huk.jpg", class: "userpic dropdown-toggle d-none d-md-block", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
       </div>
 
@@ -36,7 +36,7 @@
       <div class="col-12 col-md-3 col-lg-3 mb-2">
           <div class="card-user-favorite">
             <%= cl_image_tag artist.photo.key %>
-            <%= link_to artist.name, artist_path(artist), class:"index-user"%>
+            <%= link_to artist.name, artist_path(artist), class:"index-user align-middle" %>
           </div>
       </div>
     <% end %>
