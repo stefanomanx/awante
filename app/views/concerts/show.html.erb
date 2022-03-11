@@ -3,7 +3,7 @@
 <% content_for :meta_description, @concert.date %>
 <% content_for :meta_image, cl_image_path(@concert.photo.key) %>
 
-<div class="container split" >
+<div class="container footer-fix split" >
   <h1 class="text-center"><%= @concert.title %></h1>
   <div class="card-concert-show row">
     <div class="concert-img col-12 col-lg-8">
