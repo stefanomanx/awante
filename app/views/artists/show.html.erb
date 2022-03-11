@@ -1,4 +1,4 @@
-<div class="container split">
+<div class="container footer-fix split">
   <h1 class="text-center"><%= @artist.name %></h1>
   <div class="card-artist-show row">
     <div class="artist-img col-12 col-lg-8">
@@ -16,7 +16,9 @@
               <% if concert.artist_id == @artist.id %>
                 <div class="card-artist font-color" data-aos="zoom-in" >
                   <h4 class="text-center"><strong><%= link_to concert.title, concert_path(concert), class:"index-link stretched-link" %></strong></h4>
-                  <p class="text-center p-0"> <%= concert.date %></p>
+                  <div class='card-date mb-1'><small><i class="fas fa-calendar-alt"></i> <%= concert.date.split(' ')[0].split('/')[2] %>/<%= concert.date.split(' ')[0].split('/')[1] %>/<%= concert.date.split(' ')[0].split('/')[0] %>
+                    <i class="fas fa-clock"></i> <%= concert.date.split(' ')[1] %></small>
+                  </div>
                 </div>
               <% end %>
             <% end %>
