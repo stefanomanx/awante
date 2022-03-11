@@ -1,10 +1,5 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="container footer-fix">
-  <%= link_to "Vuelve a conciertos", concerts_path(@concerts), class:"btn" %>
+<div class="container footer-fix split">
+  <%= link_to "Vuelve a concierto", :back , class:"btn" %>
   <h1 class = "text-center"> <%= @venue.name %></h1>
   <p class = "text-center"><%= @venue.address %></p>
   <div class = "map-venue m-auto" style="width: 75%; height: 450px;"
@@ -24,16 +19,13 @@
           <img src="<%= concert.photo_url %>" alt="<%= concert.title %>" style="object-fit: cover; width: 100%; height: 80%; border-top-left-radius: 10px; border-top-right-radius: 10px; ">
           <div class="card-body text-center p-0 m-0" style="height: 20%;">
             <p class="card-text p-0 m-0"><%= link_to concert.title, concert_path(concert), class: "index-link" %></p>
-            <p class="card-text p-0 m-0"><%= concert.date %></p>
+            <div class='card-venue-date mb-1'><small><i class="fas fa-calendar-alt"></i> <%= concert.date.split(' ')[0].split('/')[2] %>/<%= concert.date.split(' ')[0].split('/')[1] %>/<%= concert.date.split(' ')[0].split('/')[0] %>
+              <i class="fas fa-clock"></i> <%= concert.date.split(' ')[1] %></small>
+            </div>
           </div>
         </div>
       <% end %>
     <% end %>
   </div>
-  <div class="footer">
-      <div class="footer-links">
-        <a href="https://www.instagram.com/awante.ok/?hl=es-la"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
 </div>
 <%= render 'shared/footer' %>

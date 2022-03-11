@@ -1,4 +1,4 @@
-<div class="container split">
+<div class="container split footer-fix">
   <div class="card-complete-user">
     <div class="card-user">
       <div class="rounded-circle">
@@ -29,16 +29,17 @@
       </div>
     <br>
     <br>
-    <div class="card-user-favorite font-user">
-      <h3>Artistas favoritos:
-        <ul>
-          <% @user.artists.uniq.each do |artist| %>
-            <li> <%= link_to artist.name, artist_path(artist), class:"index-link"%> </li>
-          <% end %>
-        </ul>
+      <h3 class="text-center">Artistas favoritos:
       </h3>
+    <div class="font-user text-center row">
+      <% @user.artists.uniq.each do |artist| %>
+      <div class="col-4">
+        <div class="card-user-favorite mt-2" style="margin: 0 2px">
+          <%= cl_image_tag artist.photo.key, class: "photo-size" %> <%= link_to artist.name, artist_path(artist), class:"index-link"%>
+        </div>
+       </div>
+      <% end %>
     </div>
   </div>
-  <br>
 </div>
 <%= render 'shared/footer' %>
