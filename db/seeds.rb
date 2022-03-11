@@ -68,3 +68,15 @@ events.each_with_index do |event, index|
   concert.save
 end
 puts "Finished!"
+
+puts "Fixing Bad Bunny & Justin Bieber artist pics!"
+justin = Artist.find_by_name("Justin Bieber")
+justin_photo = URI.open("https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/c/2/c/d/c2cd30c3edca91a3df4e5a69a008cff6.jpg")
+justin.photo.attach(io: justin_photo, filename: "justin_photo.jpeg", content_type: "image/jpeg")
+justin.save
+
+badbunny = Artist.find_by_name("Bad Bunny")
+badbunny_photo = URI.open("https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/4/b/7/5/4b75389fe14b1823e30b0f3de1d3f6d3.jpg")
+badbunny.photo.attach(io: badbunny_photo, filename: "badbunny_photo.jpeg", content_type: "image/jpeg")
+badbunny.save
+puts "Finished!"

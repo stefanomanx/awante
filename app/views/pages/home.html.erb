@@ -41,7 +41,7 @@
             <% current_user.favorites.each_with_index do |favorite, index| %>
               <div class="carousel-item <%= "active" if index == 0 %>">
                 <%= link_to artist_path(favorite.artist) do %>
-                  <%= image_tag cloudinary_url(favorite.artist.photo.key), class: "d-block", style: "height: 300px; margin: 0 auto" %>
+                  <%= image_tag cloudinary_url(favorite.artist.photo.key), class: "d-block", style: "height: 300px; margin: 20px auto; border-radius: 10px; box-shadow: 5px 5px 10px rgb(213,182,110);" %>
                 <% end %>
                 <div class="carousel-caption d-none d-md-block">
                   <%= link_to favorite.artist.name, artist_path(favorite.artist), class:"index-link" %>
@@ -77,7 +77,7 @@
             <% @concerts.each_with_index do |concert, index| %>
               <div class="carousel-item <%= "active" if index == 0 %>">
                 <%= link_to concert_path(concert) do %>
-                  <%= image_tag concert.photo_url, class: "d-block", style: "height: 300px; margin: 0 auto" %>
+                  <%= image_tag concert.photo_url, class: "d-block", style: "height: 300px; margin: 20px auto; border-radius: 10px; box-shadow: 5px 5px 10px rgb(213,182,110);" %>
                 <% end %>
                 <div class="carousel-caption d-none d-md-block">
                   <%= link_to concert.title, concert_path(concert), class:"index-link" %>
